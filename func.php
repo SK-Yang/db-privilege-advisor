@@ -39,15 +39,20 @@ function pwdChk(){
 }
 
 // Check the IP that you given is inside the LAN or not
-function connIPChk($ip = $dbConf['server']){	
+function connIPChk($ip = NULL){	
+	if(!isset($ip)){
+		global $dbConf;
+		$ip = $dbConf['server'];
+	}
+
 	// Don't ask me why I don't check out if the ip is less or equal 255:255:255:255. 
 	// It is a basic knowledge if you are going to use this tool!
 	if( ($ip === 'localhost') ||
 		($ip === '127\.0\.0\.1') || 
 		($ip === '\:\:1') || 
-		(preg_match('10\./', $ip)) || 
-		(preg_match('172\.(1[6-9]|2[0-9]|3[0-1])\.', $ip)) || 
-		(preg_match('192\.168\./', $ip)))
+		(preg_match('/10\./', $ip)) || 
+		(preg_match('/172\.(1[6-9]|2[0-9]|3[0-1])\./', $ip)) || 
+		(preg_match('/192\.168\./', $ip)))
 	{
 		return '<font color="green">You\'re using this tool inside the private network.</font>';
 	}

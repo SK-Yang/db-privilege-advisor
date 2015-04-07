@@ -1,7 +1,10 @@
 *******************************************************
+
 ***********     DB Privilege Advisor     **************
+
 *******************************************************
 Author: SK Yang 
+
 Website: https://skcave.wordpress.com/
 
 This little program will help you to identify that your db settings have flaw or not,

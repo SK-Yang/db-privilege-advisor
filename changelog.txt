@@ -1,4 +1,4 @@
-======== Change log v0.1 (04/10/15) ========
+======== Change log v0.11 (04/10/15) ========
 - Could test and generate suggestion for your MySQL account privileges
 - Few bugs fixed
 

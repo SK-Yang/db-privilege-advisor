@@ -4,7 +4,7 @@
 ********************************************************
 Author: SK Yang 
 Website: https://skcave.wordpress.com/
-Version: 0.1
+Version: 0.11
 
 This file contains common functions for DB connection info examine.
 */
@@ -15,7 +15,7 @@ function pwdChk(){
 	global $dbConf;
 	$grade = 0;
 	$str = '';
-	$patterns = array('#[a-z]#','#[A-Z]#','#[0-9]#','/[?!"¢G$%^&*()`{}\[\]:@~;\'#<>?,.\/\\-=_+\|]/'); 
+	$patterns = array('#[a-z]#','#[A-Z]#','#[0-9]#','/[?!"Â¢G$%^&*()`{}\[\]:@~;\'#<>?,.\/\\-=_+\|]/'); 
 	$length = strlen($dbConf['password']);
 	
 	// More than 7 digit is considered as a line to cross weak grade	

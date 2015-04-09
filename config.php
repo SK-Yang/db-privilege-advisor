@@ -10,7 +10,7 @@ $dbConf['password'] = 'password';
 $dbConf['dbName'] 	= 'test'; // Database Name
 $dbConf['address'] 	= 'localhost'; // Server IP
 $dbConf['port']		= '1234'; // Server Port
-$dbConf['type']		= 'mysql'; // what kind of db is it
+$dbConf['type']		= 'mysql'; // what kind of db is it(support mysql 5+ now)
 /*** DB Role ***
 super: super user of DB server.
 replic: DB replication user.

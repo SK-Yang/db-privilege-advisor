@@ -1,0 +1,14 @@
+======== Change log v0.12 ========
+- Change to MVC like file architrcture
+- Check PostgreSQL privilege setting functions added
+- Bug fixed
+
+======== Change log v0.11 ========
+- Check MySQL privilege setting functions added
+- Bugs fixed
+
+======== Change log v0.1 ========
+- Check password strength
+- Check if you're using this tool inside LAN or not
+- Check port setting is default or not
+- Check role that you're going to access

@@ -14,7 +14,7 @@ Requirement:
 PHP 5+
 
 Usage:
-Checkout this project and fill your database connection info into config.php, then open index.php with your browser.
+Checkout this project and fill your database connection info into config/config.php, then open index.php with your browser.
 
 Disclaimer: 
 I'm not responsible for any damage to your system while using it, so use it at your own risk.

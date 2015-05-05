@@ -4,7 +4,7 @@
 ********************************************************
 Author: SK Yang 
 Website: https://skcave.wordpress.com/
-Version: 0.1
+File Version: 0.12
 
 This little program will help you to identify that your db settings have flaw or not,
 then it will give you suggestion if there is a way to improve its security.
@@ -16,10 +16,15 @@ Licensed under Apache 2.0, you may use this program freely for non-commericial u
 a license is required for commericial use.
 */
 error_reporting(E_ALL ^ E_NOTICE);
-require_once(APP_ROOT . 'func.php');
 
+require_once(dirname(__FILE__) . '/func/func.php');
 
-	
+if($dbConf['type'] === 'mysql'){
+	require_once(dirname(__FILE__) . '/func/mysql-func.php');
+}
+else if($dbConf['type'] === 'postgre'){
+	require_once(dirname(__FILE__) . '/func/postgre-func.php');
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,7 +76,15 @@ require_once(APP_ROOT . 'func.php');
 			<td width='25%'><?php echo $dbConf['rold']; ?></td>
 			<td><?php echo roleChk(); ?></td>
 		</tr>
-	</table>
-	
+	</table><br/>
+	<?php 
+		if($dbConf['type'] === 'mysql'){
+			echo mysqlResult();
+		}
+		else if($dbConf['type'] === 'postgre'){
+			echo postgreResult();
+		}
+	?>
+	<br/>
 </body>
 </html>

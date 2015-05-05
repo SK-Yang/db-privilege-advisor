@@ -4,18 +4,18 @@
 ********************************************************
 Author: SK Yang 
 Website: https://skcave.wordpress.com/
-Version: 0.1
+Version: 0.11
 
 This file contains common functions for DB connection info examine.
 */
-require_once(dirname(__FILE__) . '/config.php');
+require_once(dirname(dirname(__FILE__)) . '/config/config.php');
 
 // Grade your password strength
 function pwdChk(){
 	global $dbConf;
 	$grade = 0;
 	$str = '';
-	$patterns = array('#[a-z]#','#[A-Z]#','#[0-9]#','/[?!"¢G$%^&*()`{}\[\]:@~;\'#<>?,.\/\\-=_+\|]/'); 
+	$patterns = array('#[a-z]#','#[A-Z]#','#[0-9]#','/[?!"Â¢G$%^&*()`{}\[\]:@~;\'#<>?,.\/\\-=_+\|]/'); 
 	$length = strlen($dbConf['password']);
 	
 	// More than 7 digit is considered as a line to cross weak grade	
@@ -24,7 +24,7 @@ function pwdChk(){
 		
 		foreach($patterns as $pattern)
 		{
-			if(preg_match($pattern,$dbConf['password'],$matches))
+			if(preg_match($pattern, $dbConf['password'], $matches))
 			{
 				$grade++;
 			}
@@ -42,14 +42,14 @@ function pwdChk(){
 function connIPChk($ip = NULL){	
 	if(!isset($ip)){
 		global $dbConf;
-		$ip = $dbConf['server'];
+		$ip = $dbConf['address'];
 	}
 
 	// Don't ask me why I don't check out if the ip is less or equal 255:255:255:255. 
 	// It is a basic knowledge if you are going to use this tool!
 	if( ($ip === 'localhost') ||
-		($ip === '127\.0\.0\.1') || 
-		($ip === '\:\:1') || 
+		($ip === '127.0.0.1') || 
+		($ip === '::1') || 
 		(preg_match('/10\./', $ip)) || 
 		(preg_match('/172\.(1[6-9]|2[0-9]|3[0-1])\./', $ip)) || 
 		(preg_match('/192\.168\./', $ip)))
